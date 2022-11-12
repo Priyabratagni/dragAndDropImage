@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop Images</title>
+
+      
+    <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+      
+    <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+          
+
+    <style>
+  
+        
+        body {
+            text-align: center;
+        }
+  
+        
+        img{
+            height: 200px;
+            width: 350px;
+        }
+    </style>
+          
+
+    <script>
+        $(function(){
+            $("#imageList").sortable({
+                update: function(event, ui) {
+                    getImages();
+                }
+            });
+        });
+        
+        function getImages(){
+            var values = [];
+            $('listItem').each(function(index){
+                values.push($(this).attr("id")
+                            .replace("imageNo",""));
+            });
+            $('#outputvalues').val(values);
+        }
+        </script>
+
+
+</head>
+<body>
+    
+    <b>Image slider with a drag and drop option to change the position of the sequence of the image</b>
+    
+    <div class="height"></div><br>
+
+    <div id="imageList">
+        <div id="image1" class="listItem">
+            <img src="images/image1.jpg" alt="">
+        </div>
+        <div id="image2" class="listItem">
+            <img src="images/image2.jpg" alt="">
+        </div>
+        <div id="image3" class="listItem">
+            <img src="images/image3.jpg" alt="">
+        </div>
+        <div id="image4" class="listItem">
+            <img src="images/image4.jpg" alt="">
+        </div>
+        <div id="image5" class="listItem">
+            <img src="images/image5.jpg" alt="">
+        </div>
+        <div id="image6" class="listItem">
+            <img src="images/image6.jpg" alt="">
+        </div>
+    </div>
+
+    
+</body>
+</html>
